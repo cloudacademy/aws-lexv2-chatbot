@@ -1,3 +1,4 @@
 updateapienv.sh
 **/.DS_Store
-**/.zip
+**/*.zip
+lambda/package/

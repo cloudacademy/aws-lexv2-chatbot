@@ -15,7 +15,10 @@ if ! aws iam get-role --role-name AWSServiceRoleForLexBots; then
     aws iam create-service-linked-role --aws-service-name lex.amazonaws.com
 fi
 
-if ! aws lambda get-function --function-name movierecommendations; then
+if aws lambda get-function --function-name movierecommendations; then
+    aws lambda delete-function --function-name movierecommendations
+fi
+
 aws lambda create-function \
     --function-name movierecommendations \
     --runtime python3.9 \
@@ -23,11 +26,6 @@ aws lambda create-function \
     --handler lambda_function.lambda_handler \
     --environment Variables="{APIKEY=$APIKEY}" \
     --role arn:aws:iam::379242798045:role/service-role/MovieAPI-role-a07iyqe9
-fi
-
-if ! aws iam get-role --role-name AWSServiceRoleForLexBots; then
-    aws iam create-service-linked-role --aws-service-name lex.amazonaws.com
-fi
 
 popd
 pushd lex
