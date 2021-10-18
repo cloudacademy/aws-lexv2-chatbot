@@ -1,0 +1,10 @@
+{
+    "name": "MovieSuggestions",
+    "version": "DRAFT",
+    "description": null,
+    "identifier": "W6S1DSSHFI",
+    "idleSessionTTLInSeconds": 300,
+    "dataPrivacy": {
+        "childDirected": false
+    }
+}

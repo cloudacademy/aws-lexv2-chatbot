@@ -1,0 +1,99 @@
+{
+    "name": "MovieRecommendation",
+    "identifier": "AFHJFMCI03",
+    "description": null,
+    "parentIntentSignature": null,
+    "sampleUtterances": [
+        {
+            "utterance": "I want to watch a movie"
+        },
+        {
+            "utterance": "movie recommendations please"
+        },
+        {
+            "utterance": "recommend a movie"
+        },
+        {
+            "utterance": "what is a good movie to watch"
+        },
+        {
+            "utterance": "recommend a {genre} movie"
+        },
+        {
+            "utterance": "recommend a {genre} film"
+        }
+    ],
+    "intentConfirmationSetting": {
+        "isActive": true,
+        "promptSpecification": {
+            "maxRetries": 4,
+            "messageGroupsList": [
+                {
+                    "message": {
+                        "ssmlMessage": null,
+                        "plainTextMessage": {
+                            "value": "Can I go ahead and find {genre} movie recommendations?"
+                        },
+                        "customPayload": null,
+                        "imageResponseCard": null
+                    },
+                    "variations": null
+                }
+            ],
+            "allowInterrupt": true
+        },
+        "declinationResponse": {
+            "messageGroupsList": [
+                {
+                    "message": {
+                        "ssmlMessage": null,
+                        "plainTextMessage": {
+                            "value": "Okay your request will not be submitted!"
+                        },
+                        "customPayload": null,
+                        "imageResponseCard": null
+                    },
+                    "variations": null
+                }
+            ],
+            "allowInterrupt": true
+        }
+    },
+    "intentClosingSetting": null,
+    "inputContexts": null,
+    "outputContexts": null,
+    "kendraConfiguration": null,
+    "dialogCodeHook": {
+        "enabled": false
+    },
+    "fulfillmentCodeHook": {
+        "fulfillmentUpdatesSpecification": null,
+        "postFulfillmentStatusSpecification": {
+            "successResponse": {
+                "messageGroupsList": [
+                    {
+                        "message": {
+                            "ssmlMessage": null,
+                            "plainTextMessage": {
+                                "value": "Here are some movie recommendations"
+                            },
+                            "customPayload": null,
+                            "imageResponseCard": null
+                        },
+                        "variations": null
+                    }
+                ],
+                "allowInterrupt": true
+            },
+            "failureResponse": null,
+            "timeoutResponse": null
+        },
+        "enabled": true
+    },
+    "slotPriorities": [
+        {
+            "priority": 1,
+            "slotName": "genre"
+        }
+    ]
+}

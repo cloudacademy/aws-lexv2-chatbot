@@ -1,0 +1,120 @@
+{
+    "name": "MovieGenre",
+    "identifier": "NKPNPBJQTL",
+    "description": null,
+    "slotTypeValues": [
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Action"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Adventure"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Animation"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Comedy"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Crime"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Documentary"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Drama"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Family"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Fantasy"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "History"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Horror"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Music"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Mystery"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Romance"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Science Fiction"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Thriller"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "War"
+            }
+        },
+        {
+            "synonyms": null,
+            "sampleValue": {
+                "value": "Western"
+            }
+        }
+    ],
+    "parentSlotTypeSignature": null,
+    "valueSelectionSetting": {
+        "resolutionStrategy": "TOP_RESOLUTION",
+        "regexFilter": null
+    }
+}
