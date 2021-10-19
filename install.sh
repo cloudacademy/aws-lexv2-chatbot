@@ -2,7 +2,11 @@
 APIKEY=TMDB_API_KEY_HERE
 AWS_ACCOUNT_ID=$(aws iam get-user | grep Arn | cut -d':' -f6)
 
+# cleanups
 find . -name '.DS_Store' -type f -delete
+rm -rf lambda/package
+rm -f lambda/lambda-movieapi.zip
+rm -f lex-movierecommendations.zip
 
 echo
 echo step1: packaging the lambda function...
