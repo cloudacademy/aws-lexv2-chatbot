@@ -1,7 +1,7 @@
 # Amazon Lex Movie Recommendations Chatbot
 
 ## Introduction
-A simple Amazon Lex (v2) Chatbot that is able to provide movie recommendations for a given movie genre. 
+A simple [Amazon Lex](https://aws.amazon.com/lex/) Chatbot that is able to provide movie recommendations for a given movie genre. This implementation is performed using [Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/what-is.html).
 
 ## Integration
 Movie recommendation data is provided by The Movie Database ([TMDB](https://www.themoviedb.org/)). 
