@@ -12,14 +12,14 @@ The chatbot integrates with [TMDB API](https://developers.themoviedb.org/3) endp
 
 ## Installation
 1. Register for a TMDB API key
-2. Within the install.sh file, update the APIKEY variable:
+2. Within the **install.sh** file, update the ```APIKEY``` variable:
 
-install.sh:
+**install.sh**:
 ```
 APIKEY=TMDB_API_KEY_HERE
 ```
-3. Execute the install.sh script
-4. Log in to the AWS Lex console and then import the newly created lex-movierecommendations.zip package
+3. Execute the **install.sh** script
+4. Log in to the AWS Lex console and then import the newly created **lex-movierecommendations.zip** package
 
 ![import chatbot package](./doc/images/image1.png)
 ![import chatbot package](./doc/images/image2.png)
