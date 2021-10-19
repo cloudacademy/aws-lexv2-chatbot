@@ -67,8 +67,6 @@ recommend a {genre} film
 I want to watch a movie
 ```
 
-Example Chatbot conversations:
+Example Chatbot conversation:
 
 ![bind lambda function](./doc/images/image9.png)
-
-![bind lambda function](./doc/images/image10.png)
