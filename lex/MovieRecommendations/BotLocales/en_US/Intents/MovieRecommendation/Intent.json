@@ -8,6 +8,9 @@
             "utterance": "I want to watch a movie"
         },
         {
+            "utterance": "I want to watch a film"
+        },
+        {
             "utterance": "movie recommendations please"
         },
         {
@@ -21,6 +24,18 @@
         },
         {
             "utterance": "recommend a {genre} film"
+        },
+        {
+            "utterance": "what is a good {genre} movie to watch"
+        },
+        {
+            "utterance": "what is a good {genre} film to watch"
+        },
+        {
+            "utterance": "what is a good movie to watch"
+        },
+        {
+            "utterance": "what is a good film to watch"
         }
     ],
     "intentConfirmationSetting": {
@@ -32,7 +47,7 @@
                     "message": {
                         "ssmlMessage": null,
                         "plainTextMessage": {
-                            "value": "Can I go ahead and find {genre} movie recommendations?"
+                            "value": "Shall I proceed and suggest to you {genre} movie recommendations?"
                         },
                         "customPayload": null,
                         "imageResponseCard": null
@@ -48,7 +63,7 @@
                     "message": {
                         "ssmlMessage": null,
                         "plainTextMessage": {
-                            "value": "Okay your request will not be submitted!"
+                            "value": "No problems!"
                         },
                         "customPayload": null,
                         "imageResponseCard": null
