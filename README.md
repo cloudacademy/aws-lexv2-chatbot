@@ -26,6 +26,8 @@ APIKEY=TMDB_API_KEY_HERE
 
 Set the following options:
 
+- **Bot name**, enter ```MovieRecommendations```
+
 - **IAM permissions**, select **create a role with basic Amazon Lex permissions**
 
 - **Childrens Online Privacy Protection Act**, select **No**
