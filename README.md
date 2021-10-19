@@ -65,6 +65,30 @@ recommend a movie
 recommend a {genre} movie
 recommend a {genre} film
 I want to watch a movie
+I want to watch a {genre} movie
+```
+
+Note: The following movie genres are supported:
+
+```
+Action
+Adventure
+Animation
+Comedy
+Crime
+Documentary
+Drama
+Family
+Fantasy
+History
+Horror
+Music
+Mystery
+Romance
+Science Fiction
+Thriller
+War
+Western
 ```
 
 Example Chatbot conversation:
