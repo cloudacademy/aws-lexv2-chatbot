@@ -1,7 +1,14 @@
 # Amazon Lex Movie Recommendations Chatbot
 
 ## Introduction
-A simple Amazon Lex (v2) Chatbot that is able to provide movie recommendations for a given movie genre. Movie recommendation data is provided by The Movie Database (TMDB). The implemented chatbot integrates with The Movie Database (TMDB) API endpoint through the use of an AWS Lambda Function.
+A simple Amazon Lex (v2) Chatbot that is able to provide movie recommendations for a given movie genre. 
+
+## Integration
+Movie recommendation data is provided by The Movie Database ([TMDB](https://www.themoviedb.org/)). 
+
+![import chatbot package](./doc/images/TMDB.png)
+
+The chatbot integrates with [TMDB API](https://developers.themoviedb.org/3) endpoint using a custom AWS [Lambda Function](./lambda/lambda_function.py) developed in Python3.
 
 ## Installation
 1. Register for a TMDB API key
