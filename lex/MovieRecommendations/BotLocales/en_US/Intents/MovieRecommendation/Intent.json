@@ -17,25 +17,22 @@
             "utterance": "recommend a movie"
         },
         {
-            "utterance": "what is a good movie to watch"
-        },
-        {
             "utterance": "recommend a {genre} movie"
         },
         {
             "utterance": "recommend a {genre} film"
         },
         {
-            "utterance": "what is a good {genre} movie to watch"
-        },
-        {
-            "utterance": "what is a good {genre} film to watch"
-        },
-        {
             "utterance": "what is a good movie to watch"
         },
         {
             "utterance": "what is a good film to watch"
+        },
+        {
+            "utterance": "what is a good {genre} movie to watch"
+        },
+        {
+            "utterance": "what is a good {genre} film to watch"
         }
     ],
     "intentConfirmationSetting": {
