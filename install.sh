@@ -54,13 +54,25 @@ if aws lambda get-function --function-name movierecommendations > /dev/null 2>&1
     aws lambda delete-function --function-name movierecommendations
 fi
 
-aws lambda create-function \
+ATTEMPTS=0
+until aws lambda create-function \
     --function-name movierecommendations \
     --runtime python3.9 \
     --zip-file fileb://lambda-movieapi.zip \
     --handler lambda_function.lambda_handler \
     --environment Variables="{APIKEY=$APIKEY}" \
-    --role $LAMBDA_ROLE_ARN
+    --role $LAMBDA_ROLE_ARN &> /dev/null
+do
+    if [ $ATTEMPTS -eq 5 ]; then
+        echo unable to create lambda function...
+        exit 1
+    fi
+    sleep 2
+    ((ATTEMPTS++))
+    echo "retrying ($ATTEMPTS of 5)..."
+done
+
+echo lambda function created!
 
 echo
 echo step6: packaging the lex chatbot deployment...
