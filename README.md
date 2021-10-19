@@ -11,7 +11,7 @@ Movie recommendation data is provided by The Movie Database ([TMDB](https://www.
 ## Lambda Function
 The chatbot integrates with [TMDB API](https://developers.themoviedb.org/3) endpoint using a custom AWS [Lambda Function](./lambda/lambda_function.py) developed in Python3:
 
-```
+```python
 import os
 from tmdbv3api import TMDb, Discover
 
