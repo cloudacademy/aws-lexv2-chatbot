@@ -1,7 +1,5 @@
 import os
-from tmdbv3api import TMDb
-from tmdbv3api import Movie
-from tmdbv3api import Discover
+from tmdbv3api import TMDb, Discover
 
 tmdb = TMDb()
 tmdb.api_key = os.getenv('APIKEY')
@@ -76,7 +74,6 @@ def MovieRecommendation(intent_request):
     slots = get_slots(intent_request)
     genre = get_slot(intent_request, 'genre')
 
-    
     discover = Discover()
     movies = discover.discover_movies({
         'primary_release_date.gte': '2019-01-01',
@@ -100,11 +97,11 @@ def MovieRecommendation(intent_request):
 def dispatch(intent_request):
     intent_name = intent_request['sessionState']['intent']['name']
     response = None
-    # Dispatch to your bot's intent handlers
+
     if intent_name == 'MovieRecommendation':
         return MovieRecommendation(intent_request)
-    #elif intent_name == 'FollowupCheckBalance':
-    #    return FollowupCheckBalance(intent_request)
+    #elif intent_name == 'OtherIntent':
+    #    return OtherIntent(intent_request)
 
     raise Exception('Intent with name ' + intent_name + ' not supported')
 
