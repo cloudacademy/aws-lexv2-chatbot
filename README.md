@@ -49,9 +49,7 @@ Set the following options:
 
 11. Confirm that the MovieRecommendations Chatbot build has completed successfully, and then click on the **Test** button to activate the Chatbot.
 
-![bind lambda function](./doc/images/image9.png)
-
-12. Within the Chatbot test pane, enter any of the following utterances:
+12. Within the Chatbot test pane, enter any of the following utterances to start the Chatbot conversation:
 
 ```
 recommend a movie
@@ -59,5 +57,9 @@ recommend a {genre} movie
 recommend a {genre} film
 I want to watch a movie
 ```
+
+Example Chatbot conversations:
+
+![bind lambda function](./doc/images/image9.png)
 
 ![bind lambda function](./doc/images/image10.png)
