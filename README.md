@@ -1,1 +1,63 @@
-# aws-lexv2-chatbot
+# Amazon Lex Movie Recommendations Chatbot
+
+## Introduction
+A simple Amazon Lex (v2) Chatbot that is able to provide movie recommendations for a given movie genre. Movie recommendation data is provided by The Movie Database (TMDB). The implemented chatbot integrates with The Movie Database (TMDB) API endpoint through the use of an AWS Lambda Function.
+
+## Installation
+1. Register for a TMDB API key
+2. Within the install.sh file, update the APIKEY variable:
+
+install.sh:
+```
+APIKEY=TMDB_API_KEY_HERE
+```
+3. Execute the install.sh script
+4. Log in to the AWS Lex console and then import the newly created lex-movierecommendations.zip package
+
+![import chatbot package](./doc/images/image1.png)
+![import chatbot package](./doc/images/image2.png)
+
+Set the following options:
+
+- **IAM permissions**, select **create a role with basic Amazon Lex permissions**
+
+- **Childrens Online Privacy Protection Act**, select **No**
+
+5. After the import has succeeded - in the lefthand menu navigate to **Deployment/Aliases** for the newly created **MovieRecommendations** bot and click on the **TestBotAlias**
+
+![bind lambda function](./doc/images/image3.png)
+
+6. Within the **TestBotAlias** click on the **English** language
+
+![bind lambda function](./doc/images/image4.png)
+
+7. Select **movierecommendations** for **Source**, and **$LATEST** for **Lambda function version or alias**. Click Save.
+
+![bind lambda function](./doc/images/image5.png)
+
+8. In the lefthand menu navigate to **Bot versions/Draft version**, and then under **Languages** click on the **English** language link.
+
+![bind lambda function](./doc/images/image6.png)
+
+9. In the bottom menu bar click on the **build** button to compile the MovieRecommendations Chatbot.
+
+![bind lambda function](./doc/images/image7.png)
+
+10. Confirm that the MovieRecommendations Chatbot build has completed successfully.
+
+![bind lambda function](./doc/images/image8.png)
+
+11. Confirm that the MovieRecommendations Chatbot build has completed successfully, and then click on the **Test** button to activate the Chatbot.
+
+![bind lambda function](./doc/images/image9.png)
+
+12. Within the Chatbot test pane, enter any of the following utterances:
+
+```
+recommend a movie
+recommend a {genre} movie
+recommend a {genre} film
+I want to watch a movie
+```
+
+![bind lambda function](./doc/images/image10.png)
