@@ -3,25 +3,28 @@ APIKEY=TMDB_API_KEY_HERE
 AWS_ACCOUNT_ID=$(aws iam get-user | grep Arn | cut -d':' -f6)
 
 # cleanups
+{
 find . -name '.DS_Store' -type f -delete
-rm -rf lambda/package
-rm -f lambda/lambda-movieapi.zip
+rm -rf lambda/function/package
+rm -f lambda/function/lambda-movieapi.zip
 rm -f lex-movierecommendations.zip
+}
 
 echo
 echo step1: packaging the lambda function...
 echo
-pushd lambda
-rm -rf ./package
+pushd lambda/function
 pip3 install --target ./package tmdbv3api
 pushd ./package
 zip -r ../lambda-movieapi.zip .
 popd
 zip -g lambda-movieapi.zip lambda_function.py
+popd
 
 echo
 echo step2: creating lex service linked role...
 echo
+pushd lambda/iam
 if ! aws iam get-role --role-name AWSServiceRoleForLexBots > /dev/null 2>&1; then
     aws iam create-service-linked-role --aws-service-name lex.amazonaws.com
 fi
@@ -46,10 +49,12 @@ fi
 
 LAMBDA_ROLE_ARN=$(aws iam list-roles --query "Roles[?RoleName == 'LexChatbotLambdaExecRole'].Arn" --output text)
 echo LAMBDA_ROLE_ARN=$LAMBDA_ROLE_ARN
+popd
 
 echo
 echo step5: creating lambda function...
 echo
+pushd lambda/function
 if aws lambda get-function --function-name movierecommendations > /dev/null 2>&1; then
     aws lambda delete-function --function-name movierecommendations
 fi
@@ -73,11 +78,11 @@ do
 done
 
 echo lambda function created!
+popd
 
 echo
 echo step6: packaging the lex chatbot deployment...
 echo
-popd
 pushd lex
 zip -r ../lex-movierecommendations.zip .
 popd
