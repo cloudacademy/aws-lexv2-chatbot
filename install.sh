@@ -1,6 +1,13 @@
 #!/bin/bash
+
+# CLOUDACADEMY 2021
+# jeremy.cook@cloudacademy.com
+
 APIKEY=TMDB_API_KEY_HERE
 AWS_ACCOUNT_ID=$(aws iam get-user | grep Arn | cut -d':' -f6)
+
+NOCOLOR='\033[0m'
+LIGHTGREEN='\033[1;32m'
 
 # cleanups
 {
@@ -11,7 +18,16 @@ rm -f lex-movierecommendations.zip
 }
 
 echo
-echo step1: packaging the lambda function...
+echo -e "${LIGHTGREEN}Step1: packaging the lex chatbot...${NOCOLOR}"
+echo
+pushd lex
+zip -r ../lex-movierecommendations.zip .
+popd
+
+# --------------------------------
+
+echo
+echo -e "${LIGHTGREEN}Step2: packaging the lambda function...${NOCOLOR}"
 echo
 pushd lambda/function
 pip3 install --target ./package tmdbv3api
@@ -21,16 +37,20 @@ popd
 zip -g lambda-movieapi.zip lambda_function.py
 popd
 
+# --------------------------------
+
 echo
-echo step2: creating lex service linked role...
+echo -e "${LIGHTGREEN}Step3: creating lex service linked role...${NOCOLOR}"
 echo
 pushd lambda/iam
 if ! aws iam get-role --role-name AWSServiceRoleForLexBots > /dev/null 2>&1; then
     aws iam create-service-linked-role --aws-service-name lex.amazonaws.com
 fi
 
+# --------------------------------
+
 echo
-echo step3: creating lambda exec policy...
+echo -e "${LIGHTGREEN}Step4: creating lambda exec policy...${NOCOLOR}"
 echo
 if ! aws iam get-policy --policy-arn arn:aws:iam::$AWS_ACCOUNT_ID:policy/LexChatbotLambdaExecPolicy > /dev/null 2>&1; then
     aws iam create-policy --policy-name LexChatbotLambdaExecPolicy --policy-document file://lambda_exec_iam_policy.json 
@@ -39,8 +59,10 @@ fi
 LAMBDA_POLICY_ARN=$(aws iam list-policies --query "Policies[?PolicyName == 'LexChatbotLambdaExecPolicy'].Arn" --output text)
 echo LAMBDA_POLICY_ARN=$LAMBDA_POLICY_ARN
 
+# --------------------------------
+
 echo
-echo step4: creating lambda exec role...
+echo -e "${LIGHTGREEN}Step5: creating lambda exec role...${NOCOLOR}"
 echo
 if ! aws iam get-role --role-name LexChatbotLambdaExecRole > /dev/null 2>&1; then
     aws iam create-role --role-name LexChatbotLambdaExecRole --assume-role-policy-document file://lambda_trust_policy.json
@@ -51,8 +73,10 @@ LAMBDA_ROLE_ARN=$(aws iam list-roles --query "Roles[?RoleName == 'LexChatbotLamb
 echo LAMBDA_ROLE_ARN=$LAMBDA_ROLE_ARN
 popd
 
+# --------------------------------
+
 echo
-echo step5: creating lambda function...
+echo -e "${LIGHTGREEN}Step6: creating lambda function...${NOCOLOR}"
 echo
 pushd lambda/function
 if aws lambda get-function --function-name movierecommendations > /dev/null 2>&1; then
@@ -77,18 +101,17 @@ do
     echo "retrying ($ATTEMPTS of 5)..."
 done
 
-echo lambda function created!
+echo -e "${LIGHTGREEN}movierecommendations lambda function successfully deployed!${NOCOLOR}"
 popd
+echo 
+
+# --------------------------------
+
+tree -I "docs|package"
 
 echo
-echo step6: packaging the lex chatbot deployment...
+echo -e "${LIGHTGREEN}================================================"
+echo -e "  MANUAL: login to the AWS Lex console:" 
+echo -e "  import the lex-movierecommendations.zip package"
+echo -e "================================================${NOCOLOR}"
 echo
-pushd lex
-zip -r ../lex-movierecommendations.zip .
-popd
-
-echo
-echo ===========================
-echo "within the AWS Lex console:" 
-echo "import the lex-movierecommendations.zip package"
-echo ===========================
